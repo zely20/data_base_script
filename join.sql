@@ -27,6 +27,14 @@ select * from departments d cross join emploees e;
 select * from departments d full join emploees e on e.departments_id = d.id;
 select * from emploees e left join departments d on e.departments_id = d.id where e.departments_id is null;
 
+
+/* однинаковый вывод
+*/
+
+select * from departments d left join emploees e on e.departments_id = d.id;
+select * from  emploees e left join departments d on e.departments_id = d.id;
+
+
 create table teens(
     name text primary key,
     gender text
@@ -37,5 +45,5 @@ insert into teens(name, gender) values ('Olga','W');
 insert into teens(name, gender) values ('Pety','M');
 insert into teens(name, gender) values ('Vasya','M');
 
-select t1.gender as a, t2.gender as b from teens t1 cross join teens t2;
+select t1.name as a, t2.name as b from teens t1 cross join teens t2 where t1.gender != t2.gender;
 //как сделать однополые браки не совсем понимаю
